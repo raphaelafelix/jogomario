@@ -1,12 +1,12 @@
 // Criação dr variáveis para encontrar as classes
-let mario = document.querySelector('.mario'); // encontrar o mário
+let frisk = document.querySelector('.frisk'); // encontrar o mário
 let cano = document.querySelector('.cano'); // encontra o cano
 let nuvem = document.querySelector('.nuvem'); // encontra a nuvem
 let telaFim = document.querySelector('.fim'); // encontra a tela de game over
 let botaoReiniciar = document.querySelector('.reiniciar'); // encontra o botão
 
 console.log('=== PARADA 01 ===');
-console.log('Mario:', mario);
+console.log('Frisk:', frisk);
 console.log('Cano:', cano);
 console.log('Nuvem:', nuvem);
 console.log('Tela de Fim:', telaFim);
@@ -14,13 +14,13 @@ console.log('Botão:', botaoReiniciar);
 
 function pular(){
 
-    mario.classList.add('pular');
+    frisk.classList.add('pular');
 
     // settimeout = espera um tempo e depois executa algo
 
     setTimeout(function(){
         // assim forma o Mário volta ao normal
-        mario.classList.remove('pular')
+        frisk.classList.remove('pular')
     }, 500); // 500 milissegundos = 0,5 segundos
 }
 document.addEventListener('keydown', function(){
@@ -54,7 +54,7 @@ let loopDoJogo = setInterval(function(){
     // ---- > Transforma o texto em "120" no número 120, para o JS fazer contas
     let posicaoCano = cano.offsetLeft;
 
-    let posicaoMario = +window.getComputedStyle(mario).bottom.replace('px', '')
+    let posicaoFrisk = +window.getComputedStyle(frisk).bottom.replace('px', '')
 
     // console.log('cano: ', posicaoCano, 'Mario: ', posicaoMario)
 
@@ -65,10 +65,10 @@ let loopDoJogo = setInterval(function(){
     // 3. O Mario está no chão? (posicaoMario < 60 - não pulou)
     // Se TODAS as 3 forem verdade, o Mário bateu!
 
-    if(posicaoCano <= 100 && posicaoCano > 0 && posicaoMario < 60){
+    if(posicaoCano <= 100 && posicaoCano > 0 && posicaoFrisk < 60){
         console.log('==== COLISÃO DETECTADA! ====')
         console.log('Cano na posição', posicaoCano)
-        console.log('Mario na posição', posicaoMario)
+        console.log('Frisk na posição', posicaoFrisk)
         console.log('Fim de jogo!')
 
         // Parar o mário quando ele colidir
@@ -78,12 +78,12 @@ let loopDoJogo = setInterval(function(){
         cano.style.left = posicaoCano + 'px';
 
         // PARA O MÁRIO 
-        mario.style.animation = 'none';
-        mario.style.bottom = posicaoMario + 'px';
+        frisk.style.animation = 'none';
+        frisk.style.bottom = posicaoFrisk + 'px';
 
         // TROCA A IMAGEM DO MARIO PARA GAME OVER
-        mario.src = './img/game-over.png';
-        mario.style.width = '70px'
+        frisk.src = './img/its-overr.gif';
+        frisk.style.width = '70px'
 
         // mostrar a tela de game over
         telaFim.style.visibility = 'visible';
@@ -106,10 +106,10 @@ function reiniciarJogo(){
     cano.style.left = '';
 
     // Restaura o Mário
-    mario.src = './img/mario.gif'
-    mario.style.width = '130px';
-    mario.style.bottom = '0px';
-    mario.style.animation = ''; // remove qualquer animação fixa
+    frisk.src = './img/frisk.gif'
+    frisk.style.width = '130px';
+    frisk.style.bottom = '0px';
+    frisk.style.animation = ''; // remove qualquer animação fixa
 }
 
 
@@ -117,20 +117,20 @@ function reiniciarJogo(){
 
 loopDoJogo = setInterval(function(){
     let posicaoCano = cano.offsetLeft;
-    let posicaoMario = +window.getComputedStyle(mario).bottom.replace('px','')
+    let posicaoFrisk = +window.getComputedStyle(frisk).bottom.replace('px','')
 
 
     // A MESMA CONDIÇÃO DE COLISÃO ANTERIOR
-    if(posicaoCano<=100 && posicaoCano > 0 && posicaoMario < 60){
+    if(posicaoCano<=100 && posicaoCano > 0 && posicaoFrisk < 60){
         console.log('============== COLISÃO NO JOGO REINICIANDO ================')
 
         cano.style.animation = 'none';
         cano.style.left = posicaoCano = 'px'
 
-        mario.style.animation = 'none';
-        mario.style.bottom = posicaoMario = 'px';
-        mario.src = './img/game-over.png'
-        mario.style.width = '70px';
+        frisk.style.animation = 'none';
+        frisk.style.bottom = posicaoFrisk = 'px';
+        frisk.src = './img/its-overr.gif'
+        frisk.style.width = '70px';
 
         telaFim.style.visibility = 'visible';
         clearInterval(loopDoJogo);

@@ -35,7 +35,7 @@
 /* ================================================== */
 /* PERSONAGEM - Mario */
 /* ================================================== */
-.mario {
+.frisk {
     width: 130px;           /* Tamanho do Mario */
     position: absolute;     /* Posicionamento livre */
     bottom: 0;              /* Começa no chão */
@@ -43,7 +43,7 @@
 
 /* Classe que faz o Mario pular (ativada pelo JavaScript) */
 .pular {
-    animation: pularMario 500ms ease-out;
+    animation: pularFrisk 500ms ease-out;
 }
 
 /* ================================================== */
@@ -111,7 +111,7 @@
 }
 
 /* Mario sobe e desce */
-@keyframes pularMario {
+@keyframes pularFrisk {
     0% { bottom: 0; }       /* No chão */
     50% { bottom: 150px; }  /* Lá em cima */
     100% { bottom: 0; }     /* Volta ao chão */
@@ -131,7 +131,7 @@
 /* CELULAR - Tela menor */
 /* ================================================== */
 @media (max-width: 620px) {
-    .mario {
+    .frisk {
         width: 100px;       /* Mario menor no celular */
     }
 
