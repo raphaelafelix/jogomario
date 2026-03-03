@@ -7,29 +7,44 @@
     box-sizing: border-box; /* Bordas não aumentam o tamanho */
 }
 
+
+
+.silkscreen-regular {
+  font-family: "Silkscreen", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.silkscreen-bold {
+  font-family: "Silkscreen", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
 /* ================================================== */
 /* ÁREA DO JOGO - O palco principal */
 /* ================================================== */
 .jogo {
     width: 100%;            /* Ocupa toda largura */
     height: 400px;          /* Altura fixa */
-    border-bottom: 50px solid green; /* Cria o chão */
+    border-bottom: 50px solid #4B0082; /* Cria o chão */
     margin: 0 auto;         /* Centraliza */
     position: relative;     /* IMPORTANTE: elementos com position:absolute ficam DENTRO */
     overflow: hidden;       /* Esconde o que sai da tela */
-    background: linear-gradient(#00008B, 	#000000); /* Céu azul */
+    background: linear-gradient(#4B0082, 	#000000); /* Céu azul */
 }
 
 /* ================================================== */
 /* OBSTÁCULO - Cano que vem da direita */
 /* ================================================== */
-.cano {
+.sans {
     position: absolute;     /* Pode ser posicionado livremente */
     bottom: 0;              /* Colado no chão */
-    width: 60px;            /* Largura do cano */
+    width: 80px;            /* Largura do cano */
 
     /* ANIMAÇÃO: nome | duração | repetição | velocidade */
-    animation: mexerCano 1.5s infinite linear;
+    animation: mexerSans 1.5s infinite linear;
 }
 
 /* ================================================== */
@@ -49,10 +64,10 @@
 /* ================================================== */
 /* NUVEM - Elemento de fundo */
 /* ================================================== */
-.nuvem {
-    width: 500px;           /* Nuvem bem grande */
+.borboleta {
+    width: 100px;           /* Nuvem bem grande */
     position: absolute;
-    animation: mexerNuvem 20s infinite linear; /* Mais lenta (fundo) */
+    animation: mexerBorboleta 20s infinite linear; /* Mais lenta (fundo) */
 }
 
 /* ================================================== */
@@ -101,7 +116,7 @@
 /* ================================================== */
 
 /* Cano se move da direita para esquerda */
-@keyframes mexerCano {
+@keyframes mexerSans {
     from {
         right: -60px;       /* Começa fora da tela à direita */
     }
@@ -118,7 +133,7 @@
 }
 
 /* Nuvem se move lentamente */
-@keyframes mexerNuvem {
+@keyframes mexerBorboleta {
     from {
         right: -500px;      /* Começa fora */
     }
@@ -135,8 +150,8 @@
         width: 100px;       /* Mario menor no celular */
     }
 
-    .cano {
+    .sans {
         width: 45px;        /* Cano menor */
-        animation: mexerCano 1.2s infinite linear; /* Mais rápido */
+        animation: mexerSans 1.2s infinite linear; /* Mais rápido */
     }
 }

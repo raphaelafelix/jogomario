@@ -1,14 +1,14 @@
 // Criação dr variáveis para encontrar as classes
 let frisk = document.querySelector('.frisk'); // encontrar o mário
-let cano = document.querySelector('.cano'); // encontra o cano
-let nuvem = document.querySelector('.nuvem'); // encontra a nuvem
+let sans = document.querySelector('.sans'); // encontra o cano
+let borboleta = document.querySelector('.borboleta'); // encontra a nuvem
 let telaFim = document.querySelector('.fim'); // encontra a tela de game over
 let botaoReiniciar = document.querySelector('.reiniciar'); // encontra o botão
 
 console.log('=== PARADA 01 ===');
 console.log('Frisk:', frisk);
-console.log('Cano:', cano);
-console.log('Nuvem:', nuvem);
+console.log('Sans:', sans);
+console.log('Borboleta:', borboleta);
 console.log('Tela de Fim:', telaFim);
 console.log('Botão:', botaoReiniciar);
 
@@ -52,7 +52,7 @@ let loopDoJogo = setInterval(function(){
     // ------ > Tira o px, deixando só o número: "120"
     // ------- > +window, só o +
     // ---- > Transforma o texto em "120" no número 120, para o JS fazer contas
-    let posicaoCano = cano.offsetLeft;
+    let posicaoSans = sans.offsetLeft;
 
     let posicaoFrisk = +window.getComputedStyle(frisk).bottom.replace('px', '')
 
@@ -65,17 +65,17 @@ let loopDoJogo = setInterval(function(){
     // 3. O Mario está no chão? (posicaoMario < 60 - não pulou)
     // Se TODAS as 3 forem verdade, o Mário bateu!
 
-    if(posicaoCano <= 100 && posicaoCano > 0 && posicaoFrisk < 60){
+    if(posicaoSans <= 100 && posicaoSans > 0 && posicaoFrisk < 60){
         console.log('==== COLISÃO DETECTADA! ====')
-        console.log('Cano na posição', posicaoCano)
+        console.log('Sans na posição', posicaoSans)
         console.log('Frisk na posição', posicaoFrisk)
         console.log('Fim de jogo!')
 
         // Parar o mário quando ele colidir
 
         // PARA O CANO
-        cano.style.animation = 'none';
-        cano.style.left = posicaoCano + 'px';
+        sans.style.animation = 'none';
+        sans.style.left = posicaoSans + 'px';
 
         // PARA O MÁRIO 
         frisk.style.animation = 'none';
@@ -83,7 +83,7 @@ let loopDoJogo = setInterval(function(){
 
         // TROCA A IMAGEM DO MARIO PARA GAME OVER
         frisk.src = './img/its-overr.gif';
-        frisk.style.width = '70px'
+        frisk.style.width = '170px'
 
         // mostrar a tela de game over
         telaFim.style.visibility = 'visible';
@@ -102,8 +102,8 @@ function reiniciarJogo(){
     telaFim.style.visibility = 'hidden'
 
     // Restaurar o cano
-    cano.style.animation = 'mexerCano 1.5s infinite linear';
-    cano.style.left = '';
+    sans.style.animation = 'mexerSans 1.5s infinite linear';
+    sans.style.left = '';
 
     // Restaura o Mário
     frisk.src = './img/frisk.gif'
@@ -116,16 +116,16 @@ function reiniciarJogo(){
 /// =================== CRIAR UM NOVO LOOP ============================== //
 
 loopDoJogo = setInterval(function(){
-    let posicaoCano = cano.offsetLeft;
+    let posicaoSans = sans.offsetLeft;
     let posicaoFrisk = +window.getComputedStyle(frisk).bottom.replace('px','')
 
 
     // A MESMA CONDIÇÃO DE COLISÃO ANTERIOR
-    if(posicaoCano<=100 && posicaoCano > 0 && posicaoFrisk < 60){
+    if(posicaoSans<=100 && posicaoSans > 0 && posicaoFrisk < 60){
         console.log('============== COLISÃO NO JOGO REINICIANDO ================')
 
-        cano.style.animation = 'none';
-        cano.style.left = posicaoCano = 'px'
+        sans.style.animation = 'none';
+        sans.style.left = posicaoSans = 'px'
 
         frisk.style.animation = 'none';
         frisk.style.bottom = posicaoFrisk = 'px';
