@@ -92,6 +92,7 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 
+
 /* ================================================== */
 /* BOTÃO DE REINICIAR */
 /* ================================================== */
@@ -102,7 +103,8 @@
     border: none;           /* Sem borda */
     font-size: 20px;        /* Tamanho da letra */
     background-color: #4B0082; /* Vermelho */
-    color: white;           /* Letra branca */
+    color: white;
+    font-family:"Silkscreen";           /* Letra branca */
     cursor: pointer;        /* Mãozinha ao passar o mouse */
     font-weight: bold;      /* Negrito */
 }
