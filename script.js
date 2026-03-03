@@ -56,7 +56,32 @@ let loopDoJogo = setInterval(function(){
 
     let posicaoMario = +window.getComputedStyle(mario).bottom.replace('px', '')
 
-    console.log('cano: ', posicaoCano, 'Mario: ', posicaoMario)
+    // console.log('cano: ', posicaoCano, 'Mario: ', posicaoMario)
 
-    
+    // Condição de Colisão
+    // O if pergunta 3 coisas AO MESMO TEMPO
+    // 1. O cano está perto do Mário? (posicaoCano <= 100)
+    // 2. O cano ainda está na tela? (posicaoCano > 0)
+    // 3. O Mario está no chão? (posicaoMario < 60 - não pulou)
+    // Se TODAS as 3 forem verdade, o Mário bateu!
+
+    if(posicaoCano >= 100 && posicaoCano > 0 && posicaoMario < 60){
+        console.log('==== COLISÃO DETECTADA! ====')
+        console.log('Cano na posição', posicaoCano)
+        console.log('Mario na posição', posicaoMario)
+        console.log('Fim de jogo!')
+
+        // Parar o mário quando ele colidir
+
+        // PARA O CANO
+        cano.style.animation = 'none';
+        cano.style.left = posicaoCano + 'px';
+
+        // PARA O MÁRIO 
+        mario.style.animation = 'none';
+        mario.style.bottom = posicaoMario + 'px';
+
+        // TROCA A IMAGEM DO MARIO PARA GAME OVER
+
+    }
 })
