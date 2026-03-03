@@ -65,7 +65,7 @@ let loopDoJogo = setInterval(function(){
     // 3. O Mario está no chão? (posicaoMario < 60 - não pulou)
     // Se TODAS as 3 forem verdade, o Mário bateu!
 
-    if(posicaoCano >= 100 && posicaoCano > 0 && posicaoMario < 60){
+    if(posicaoCano <= 100 && posicaoCano > 0 && posicaoMario < 60){
         console.log('==== COLISÃO DETECTADA! ====')
         console.log('Cano na posição', posicaoCano)
         console.log('Mario na posição', posicaoMario)
@@ -82,6 +82,64 @@ let loopDoJogo = setInterval(function(){
         mario.style.bottom = posicaoMario + 'px';
 
         // TROCA A IMAGEM DO MARIO PARA GAME OVER
+        mario.src = './img/game-over.png';
+        mario.style.width = '70px'
 
+        // mostrar a tela de game over
+        telaFim.style.visibility = 'visible';
+
+        // Parar o loop
+        clearInterval(loopDoJogo)
     }
-})
+
+}, 10) // 10 milissegundos
+
+// Função para reiniciar 
+function reiniciarJogo(){
+    console.log('=== REINICIANDO JOGO ===')
+
+    // Esconder a tela do Game Over
+    telaFim.style.visibility - 'hidden'
+
+    // Restaurar o cano
+    cano.style.animation = 'mexeCano 1.5s infinite linear';
+    cano.style.left = '';
+
+    // Restaura o Mário
+    mario.src = 'mario.gif'
+    mario.style.width = '130px';
+    mario.style.bottom = '0px';
+    mario.style.animation = ''; // remove qualquer animação fixa
+}
+
+
+/// =================== CRIAR UM NOVO LOOP ============================== //
+
+loopDoJogo = setInterval(function(){
+    let posicaoCano = cano.offsetLeft;
+    let posicaoMario = +window.getComputedStyle(mario).bottom.replace('px', ' ')
+
+
+    // A MESMA CONDIÇÃO DE COLISÃO ANTERIOR
+    if(posicaoCano<=100 && posicaoCano > 0 && posicaoMario < 60){
+        console.log('============== COLISÃO NO JOGO REINICIANDO ================')
+
+        cano.style.animation = 'none';
+        cano.style.left = posicaoCano = 'px'
+
+        mario.style.animation = 'none';
+        mario.style.bottom = posicaoMario = 'px';
+        mario.src = './img/game-over.png'
+        mario.style.width = '70px';
+
+        telaFim.style.visibility = 'visible';
+        clearInterval(loopDoJogo);
+    }
+}, 10);
+
+// FAZER O BOTÃO DE REINICIAR
+botaoReiniciar.addEventListener('click', function(){
+    console.log('Botão Reiniciar Clicado!');
+    reiniciarJogo()
+
+});
