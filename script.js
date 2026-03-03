@@ -99,14 +99,14 @@ function reiniciarJogo(){
     console.log('=== REINICIANDO JOGO ===')
 
     // Esconder a tela do Game Over
-    telaFim.style.visibility - 'hidden'
+    telaFim.style.visibility = 'hidden'
 
     // Restaurar o cano
-    cano.style.animation = 'mexeCano 1.5s infinite linear';
+    cano.style.animation = 'mexerCano 1.5s infinite linear';
     cano.style.left = '';
 
     // Restaura o Mário
-    mario.src = 'mario.gif'
+    mario.src = './img/mario.gif'
     mario.style.width = '130px';
     mario.style.bottom = '0px';
     mario.style.animation = ''; // remove qualquer animação fixa
@@ -117,7 +117,7 @@ function reiniciarJogo(){
 
 loopDoJogo = setInterval(function(){
     let posicaoCano = cano.offsetLeft;
-    let posicaoMario = +window.getComputedStyle(mario).bottom.replace('px', ' ')
+    let posicaoMario = +window.getComputedStyle(mario).bottom.replace('px','')
 
 
     // A MESMA CONDIÇÃO DE COLISÃO ANTERIOR
