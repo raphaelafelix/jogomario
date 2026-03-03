@@ -17,7 +17,7 @@
     margin: 0 auto;         /* Centraliza */
     position: relative;     /* IMPORTANTE: elementos com position:absolute ficam DENTRO */
     overflow: hidden;       /* Esconde o que sai da tela */
-    background: linear-gradient(#87CEEB, #E0F6FF); /* Céu azul */
+    background: linear-gradient(#00008B, 	#000000); /* Céu azul */
 }
 
 /* ================================================== */
@@ -86,14 +86,14 @@
     border-radius: 10px;    /* Borda arredondada */
     border: none;           /* Sem borda */
     font-size: 20px;        /* Tamanho da letra */
-    background-color: #ff0000; /* Vermelho */
+    background-color: #4B0082; /* Vermelho */
     color: white;           /* Letra branca */
     cursor: pointer;        /* Mãozinha ao passar o mouse */
     font-weight: bold;      /* Negrito */
 }
 
 .reiniciar:hover {
-    background-color: #cc0000; /* Vermelho mais escuro ao passar mouse */
+    background-color:#4B0082; /* Vermelho mais escuro ao passar mouse */
 }
 
 /* ================================================== */
