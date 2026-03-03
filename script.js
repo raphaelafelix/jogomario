@@ -107,7 +107,7 @@ function reiniciarJogo(){
 
     // Restaura o Mário
     frisk.src = './img/frisk.gif'
-    frisk.style.width = '130px';
+    frisk.style.width = '100px';
     frisk.style.bottom = '0px';
     frisk.style.animation = ''; // remove qualquer animação fixa
 }
